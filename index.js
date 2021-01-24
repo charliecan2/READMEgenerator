@@ -1,5 +1,6 @@
-const fs = require("fs");
-const inquirer = require("inquirer");
+const fs = require('fs');
+const inquirer = require('inquirer');
+const { title } = require('process');
 
 inquirer.prompt([
     {
@@ -43,4 +44,26 @@ inquirer.prompt([
         message: "What is your email address?",
         name: "email"
     }
-]);
+]).then(({name, description, usage, contributors, license, username, email}) => {
+    const readmeContent = 
+`# ${name}
+## Description
+    ${description}
+## Usage
+    ${usage}
+## Contributors
+    ${contributors}
+## License
+    ${license}
+## Get In Touch
+    Github: ${username}
+    Email: ${email}`;
+fs.writeFile(`./README.md`, readmeContent, (err) => {
+    if (err) {
+        console.log(err);
+     }
+    else {
+        console.log("Success!");
+    }
+})
+})
