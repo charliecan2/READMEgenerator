@@ -9,7 +9,7 @@ inquirer.prompt([
     },
     {
         type: "input",
-        message: "Please write a description of your project",
+        message: "Please write a description of your project.",
         name: "description"
     },
     {
@@ -23,13 +23,8 @@ inquirer.prompt([
         name: "usage"
     },
     {
-        type: "input",
-        message: "Who was involved in the creation of this application?",
-        name: "credits"
-    },
-    {
         type: "checkbox",
-        message: "Choose a license",
+        message: "Select a license.",
         choices: [
             "apache-2.0",
             "mit",
@@ -37,6 +32,11 @@ inquirer.prompt([
             "unlicense"
         ],
         name: "license"
+    },
+    {
+        type: "input",
+        message: "Who was involved in the creation of this application?",
+        name: "contributors"
     },
     {
         type: "input",
@@ -51,30 +51,28 @@ inquirer.prompt([
 ]).then((response) => { const readmeContent = 
 `# ${response.name}
 ## Description
+[License](https://img.shields.io/badge/license-${response.license}-blue)
     ${response.description}
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [Credits](#credits)
 * [License](#license)
-* [Connect](#connect)
+* [Contributers](#contributors)
+* [Questions](#questions)
 ## Installation
     ${response.installation}
 ## Usage
     ${response.usage}
-## Credits
-    ${response.credits}
 ## License
-*   [${response.license}](https://choosealicense.com/licenses/${response.license}/)
-## Connect
+*   This application is covered by the [${response.license}](https://choosealicense.com/licenses/${response.license}/) license.
+## Contributors
+    ${response.contributors}
+## Questions
+    If you have any questions regarding this application, feel free to reach out to me via the Github or email provided below.
 *   Github: [${response.username}](https://github.com/${response.username})
 *   Email: ${response.email}`;
 fs.writeFile(`./README.md`, readmeContent, (err) => {
-    if (err) {
-        console.log(err);
-     }
-    else {
-        console.log("Your README is now available for view.");
-    }
+    if (err) console.log(err);
+    console.log("Your README is now available for view.");
 })
 })
