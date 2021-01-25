@@ -26,9 +26,9 @@ inquirer.prompt([
         type: "checkbox",
         message: "Select a license.",
         choices: [
-            "apache-2.0",
-            "mit",
-            "gpl-3.0",
+            "Apache-2.0",
+            "GPL-3.0",
+            "MIT",
             "unlicense"
         ],
         name: "license"
@@ -51,7 +51,8 @@ inquirer.prompt([
 ]).then((response) => { const readmeContent = 
 `# ${response.name}
 ## Description
-[License](https://img.shields.io/badge/license-${response.license}-blue)
+![License](https://img.shields.io/badge/license-${response.license}-blue)
+    
     ${response.description}
 ## Table of Contents
 * [Installation](#installation)
@@ -64,7 +65,7 @@ inquirer.prompt([
 ## Usage
     ${response.usage}
 ## License
-*   This application is covered by the [${response.license}](https://choosealicense.com/licenses/${response.license}/) license.
+*   This application is covered by the [${response.license}](https://opensource.org/licenses/${response.license}/) license.
 ## Contributors
     ${response.contributors}
 ## Questions
