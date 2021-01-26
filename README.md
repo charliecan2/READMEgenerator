@@ -13,6 +13,8 @@
     The user will need to install Node.js from the nodejs.org website. Also, if package.json is not present, it will need to be installed by typing "npm init -y" onto the terminal and inquirer needs to be installed as well by typing "npm install inquirer".
 ## Usage
     To start using this generator, you will need to open the terminal and type node index.js onto the command line. Then answer the questions that follow to generate your README.
+## Video Demonstration:
+https://youtu.be/BfT41j5hKVk
 ## License
 *   This application is covered by the [MIT](https://opensource.org/licenses/MIT/) license.
 ## Contributors
